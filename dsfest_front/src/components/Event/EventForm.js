@@ -6,10 +6,10 @@ function EventForm() {
     const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
-        const newReview = { content: content };
+        const newNangman = { content: content };
 
         axios
-            .post('http://localhost:8000/review/', newReview)
+            .post('http://localhost:8000/review/', newNangman)
             .then((response) => {
                 console.log(response.data);
             })

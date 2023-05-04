@@ -3,13 +3,13 @@ import axios from 'axios';
 import '../../css/EventPage.css';
 
 function EventCom() {
-    const [reviews, setReviews] = useState([]);
+    const [nangmans, setNangmans] = useState([]);
 
     useEffect(() => {
         axios
             .get('http://localhost:8000/review/')
             .then((response) => {
-                setReviews(response.data);
+                setNangmans(response.data);
             })
             .catch((error) => {
                 console.log(error.response.data);
@@ -49,8 +49,11 @@ function EventCom() {
                 </div>
                 <div className="line3"></div>
                 <ul>
-                    {reviews.map((review) => (
-                        <li key={review.id}>{review.content}</li>
+                    {nangmans.map((review) => (
+                        <div className="comment" nakey={review.id}>
+                            <li>{review.content}</li>
+                            <div className="line3"></div>
+                        </div>
                     ))}
                 </ul>
             </div>
