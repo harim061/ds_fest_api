@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Container, Row, Col } from 'react-grid-system';
 import Pagination from 'react-js-pagination';
 import axios from 'axios';
@@ -7,8 +7,6 @@ import '../../css/NoticePage.css';
 function NoticeList() {
     const [page, setPage] = useState(1);
     const [notice, setNotice] = useState([]);
-    const [containerRef, setContainerRef] = useState(null);
-    const [marginTop, setMarginTop] = useState(50);
     const handlePageChange = (page) => {
         setPage(page);
     };
@@ -24,15 +22,21 @@ function NoticeList() {
             });
     }, []);
 
+    const containerRef = useRef(null);
+
     useEffect(() => {
-        if (notice.length <= 4) {
-            setMarginTop(200);
-            console.log('200');
+        if (containerRef.current) {
+            if (notice.length <= 2) {
+                containerRef.current.style.marginBottom = '350px';
+            } else if (notice.length <= 4) {
+                containerRef.current.style.marginBottom = '180px';
+            } else {
+                containerRef.current.style.marginBottom = '50px';
+            }
         } else {
-            setMarginTop(50);
-            console.log('50');
+            console.log('containerRef.current is null');
         }
-    }, [notice]);
+    }, [notice, containerRef]);
 
     const onClickToDetail = () => {
         window.location.href = '/detail';
@@ -44,7 +48,7 @@ function NoticeList() {
 
             <Container>
                 {notice.length == 1 ? (
-                    <Row>
+                    <Row ref={containerRef}>
                         {notice.map((review) => (
                             <Col
                                 className="col"
@@ -81,7 +85,7 @@ function NoticeList() {
                         </Col>
                     </Row>
                 ) : (
-                    <Row>
+                    <Row ref={containerRef}>
                         {notice.map((review) => (
                             <Col
                                 className="col"
@@ -103,9 +107,7 @@ function NoticeList() {
                 )}
             </Container>
             <Pagination
-                style={{ marginTop: `${marginTop}px` }}
-                ref={containerRef}
-                className="pagination2"
+                style={{ marginTop: '0px' }}
                 activePage={page}
                 itemsCountPerPage={6} // 한 페이지랑 보여줄 아이템 갯수
                 totalItemsCount={notice.length} // 총 아이템 갯수
