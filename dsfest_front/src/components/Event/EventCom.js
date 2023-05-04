@@ -15,6 +15,7 @@ function EventCom() {
                 console.log(error.response.data);
             });
     }, []);
+    
     return (
         <div className="sectionbody3">
             <div className="detailsection">

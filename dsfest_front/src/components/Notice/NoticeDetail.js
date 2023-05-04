@@ -14,7 +14,7 @@ function NoticeDetail() {
         window.location.href = '/notice';
     };
     return (
-        <div className="insertBody">
+        <div className="insertBody2">
             <div className="detailCotainer">
                 <div className="notice">공지사항</div>
 
