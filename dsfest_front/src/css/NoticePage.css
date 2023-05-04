@@ -1,0 +1,192 @@
+@media (min-width: 768px) {
+    .insertBody {
+        margin: 0 auto;
+        width: 375px;
+        background-color: #fff8fb;
+    }
+}
+.insertBody {
+    background-color: #fff8fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* NoticeList css  */
+
+.ListContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+}
+.noticeCount {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+.noticeImg {
+    background-color: grey;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.noticeTitle {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-evenly;
+
+    @media (min-width: 768px) {
+        justify-content: space-between;
+    }
+}
+
+.bottomC {
+    margin-top: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    align-content: baseline;
+
+    @media (min-width: 768px) {
+        justify-content: space-between;
+    }
+}
+
+.noticeDate {
+    color: grey;
+    font-size: small;
+}
+
+.star {
+    color: white;
+    background-color: #e25959;
+    font-size: x-small;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* pagination css */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul.pagination li {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+ul.pagination li:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+ul.pagination li:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+ul.pagination li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+ul.pagination li.active a {
+    color: white;
+}
+
+ul.pagination li.active a:hover {
+    color: white;
+}
+
+ul.pagination li.active {
+    background-color: #986d9e;
+    border-radius: 50%;
+}
+
+ul.pagination li a:hover {
+    color: #986d9e;
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+    color: #986d9e;
+}
+
+.page-selection {
+    width: 48px;
+    height: 30px;
+    color: #986d9e;
+}
+
+/* NoticeDetail css*/
+
+.detailCotainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+}
+
+.notice {
+    color: #64446d;
+    size: 20px;
+    font-weight: 700;
+    margin: 9.5px 0px 34.5px 0px;
+    align-self: center;
+}
+
+.detailC1 {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.detailTitle {
+    font-weight: bold;
+}
+
+.detailContent {
+    word-break: break-all;
+    text-align: left;
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+.goList {
+    width: fit-content;
+    background-color: #8a4395;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: small;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+.noticeDate2 {
+    color: grey;
+    font-size: small;
+    margin-top: 5px;
+}

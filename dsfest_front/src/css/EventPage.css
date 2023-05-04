@@ -1,0 +1,189 @@
+@media (min-width: 768px) {
+    .insertBody {
+        margin: 0 auto;
+        width: 375px;
+        background-color: #fff8fb;
+    }
+}
+.insertBody {
+    background-color: #fff8fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* EventPage 컴포넌트에 대한 스타일 */
+.sectionbody1 {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 24px;
+}
+
+.posterimg {
+    width: 100%;
+    height: 100%;
+    box-shadow: 3px 2px 7px -12px rgba(20, 3, 24, 0.1);
+    margin-bottom: 12px;
+}
+
+.eventtitle {
+    color: #64446d;
+    size: 20px;
+    font-weight: 700;
+    margin: 9.5px 0px 34.5px 0px;
+}
+
+.subtitle1 {
+    font-size: 24px;
+    color: #4984ae;
+    font-weight: 700;
+    line-height: 28.64px;
+}
+
+.detailsection {
+    margin: 25px 0px 25px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.detailtext1 {
+    font-size: 16px;
+    line-height: 23.23px;
+}
+
+.line {
+    border: 1px solid #4984ae;
+    height: 0px;
+    width: 100%;
+}
+/* EventPage 컴포넌트에 대한 스타일 */
+
+/* EventForm 컴포넌트에 대한 스타일 */
+.sectionbody2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 24px;
+    box-sizing: border-box;
+}
+
+.detailtext2 {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.51px;
+    color: #838383;
+}
+
+.line2 {
+    width: 100%;
+    height: 0px;
+    border: 2px solid #4984ae;
+}
+
+.formsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formsection > p {
+    color: #6f6f6f;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+}
+.form_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14.32px;
+    width: 100%;
+}
+
+.submitbtn {
+    background-color: #4984ae;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    height: 47px;
+    color: #ffffff;
+    box-shadow: 3px 2px 7px -12px rgba(20, 3, 24, 0.1);
+    border-radius: 8px;
+    border: 0px;
+}
+
+.form_inner > input::placeholder {
+    color: #4984ae;
+}
+.form_inner > input {
+    padding-left: 16px;
+    width: 100%;
+    height: 52px;
+    background: #ecf1f2;
+    box-sizing: border-box;
+    border: 1px solid #4984ae;
+    border-radius: 8px;
+}
+
+.form_inner > textarea {
+    width: 100%;
+    height: 128px;
+    resize: none;
+    background: #ecf1f2;
+    box-sizing: border-box;
+    border: 1px solid #4984ae;
+    border-radius: 8px;
+    padding-left: 16px;
+    padding-top: 17.5px;
+}
+.form_inner > textarea::placeholder {
+    color: #4984ae;
+}
+.formsection > p {
+    margin: 18px 0px 32px 0px;
+}
+/* EventForm 컴포넌트에 대한 스타일 */
+
+/* EventCom 컴포넌트에 대한 스타일 */
+.sectionbody3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 24px;
+    box-sizing: border-box;
+    margin-bottom: 130px;
+}
+.commentsection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.writeinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.writername {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+}
+.writedate {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 130%;
+    color: #838383;
+}
+.comment {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #6f6f6f;
+}
+.commentsection > .line3 {
+    width: 100%;
+    height: 0px;
+    border: 1px solid #838383;
+}
+/* EventCom 컴포넌트에 대한 스타일 */
