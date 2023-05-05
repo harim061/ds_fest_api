@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 20px 0 20px;
+    text-align: center;
 }
 .noticeCount {
     font-weight: bold;
@@ -26,10 +27,24 @@
     margin-left: 10px;
 }
 
+.noNotice {
+    margin-top: 30vh;
+    font-weight: bold;
+    color: grey;
+}
+
+.row {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+}
 .col {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    justify-content: center;
+    width: 150px;
 }
 
 .col2 {
@@ -48,27 +63,20 @@
 }
 
 .noticeTitle {
-    width: 100%;
+    width: 150px;
     font-weight: bold;
-
-    @media (min-width: 768px) {
-        justify-content: space-between;
-        margin-left: 0px;
-    }
+    text-align: start;
 }
-
+.invTitle {
+    visibility: hidden;
+}
 .bottomC {
     margin-top: 7px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 10px;
     align-content: baseline;
-    margin-left: -10px;
-
-    @media (min-width: 768px) {
-        justify-content: space-between;
-        margin-left: 0px;
-    }
+    width: 150px;
 }
 
 .noticeDate {
@@ -79,9 +87,17 @@
 .star {
     color: white;
     background-color: #e25959;
+    font-size: small;
+    padding: 4px;
+    border-radius: 4px;
+    align-self: self-end;
+}
+
+.noStar {
     font-size: x-small;
     padding: 4px;
     border-radius: 4px;
+    align-self: self-end;
 }
 
 /* pagination css */
@@ -215,4 +231,10 @@ ul.pagination li a.active {
     color: grey;
     font-size: small;
     margin-top: 5px;
+}
+
+.slickP {
+    width: 310px;
+    height: 310px;
+    margin-bottom: 10px;
 }

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../../css/NoticePage.css';
 import styled from 'styled-components';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 const NoticeImg = styled.img`
     width: 310px;
@@ -9,44 +14,78 @@ const NoticeImg = styled.img`
     background-color: grey;
     align-self: center;
 `;
+
 function NoticeDetail() {
+    const [detail, setDetail] = useState([]);
+    const { id } = useParams();
+
     const onClickToList = () => {
         window.location.href = '/notice';
     };
+
+    useEffect(() => {
+        axios
+            .get(`http://127.0.0.1:8000/blogs/${id}`)
+            .then((response) => {
+                setDetail(response.data);
+            })
+            .catch((error) => {
+                console.log(error.response.data);
+            });
+    }, []);
+
+    const bodyRef = useRef(null);
+
+    useEffect(() => {
+        if (bodyRef.current) {
+            if (
+                (detail.body?.replace(/<br\s*\/?>/gm, '\n') || '').length <= 200
+            ) {
+                bodyRef.current.style.marginTop = '350px';
+            } else {
+                bodyRef.current.style.marginTop = '100px';
+            }
+        } else {
+            console.log('bodyRef.current is null');
+        }
+    }, [detail, bodyRef]);
+
+    const settings = {
+        className: 'slickP',
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
+
     return (
         <div className="insertBody2">
             <div className="detailCotainer">
                 <div className="notice">공지사항</div>
+                <Slider {...settings}>
+                    {(detail.images || []).map((review) => (
+                        <NoticeImg src={review.image} />
+                    ))}
+                </Slider>
 
-                <NoticeImg />
                 <div className="detailC1">
                     <div>
-                        <div className="detailTitle">공지사항제목</div>
+                        <div className="detailTitle">{detail.title}</div>
 
-                        <div className="noticeDate2">2000.4.29</div>
+                        {detail && detail.created && (
+                            <div className="noticeDate2">
+                                {detail.created.slice(5, 10)}
+                            </div>
+                        )}
                     </div>
-                    <div className="star">중요</div>
+                    {detail.pinned_order !== 0 || '' ? (
+                        <div className="star">중요</div>
+                    ) : (
+                        <div className="noStar"></div>
+                    )}
                 </div>
-                <div className="detailContent">
-                    동해물과 백두산이 마르고 닳도록하느님이 보우하사 우리나라
-                    만세무궁화 삼천리 화려 강산대한사람 대한으로 길이
-                    보전하세남산 위에 저 소나무 철갑을 두른듯바람서리 불변함은
-                    우리 기상일세무궁화 삼천리 화려 강산대한사람 대한으로 길이
-                    보전하세가을 하늘 공활한데 높고 구름 없이밝은 달은 우리 가슴
-                    일편단심일세무궁화 삼천리 화려 강산대한사람 대한으로 길이
-                    보전하세이 기상과 이 마음으로 충성을 다하여괴로우나 즐거우나
-                    나라사랑하세무궁화 삼천리 화려 강산대한사람 대한으로 길이
-                    보전하세 접기동해물과 백두산이 마르고 닳도록하느님이
-                    보우하사 우리나라 만세무궁화 삼천리 화려 강산대한사람
-                    대한으로 길이 보전하세남산 위에 저 소나무 철갑을
-                    두른듯바람서리 불변함은 우리 기상일세무궁화 삼천리 화려
-                    강산대한사람 대한으로 길이 보전하세가을 하늘 공활한데 높고
-                    구름 없이밝은 달은 우리 가슴 일편단심일세무궁화 삼천리 화려
-                    강산대한사람 대한으로 길이 보전하세이 기상과 이 마음으로
-                    충성을 다하여괴로우나 즐거우나 나라사랑하세무궁화 삼천리
-                    화려 강산대한사람 대한으로 길
-                </div>
-                <div className="goList" onClick={onClickToList}>
+                <div className="detailContent">{detail.body}</div>
+                <div className="goList" onClick={onClickToList} ref={bodyRef}>
                     목록으로
                 </div>
             </div>
