@@ -133,6 +133,7 @@ function NoticeList() {
                     </>
                 )}
             </Container>
+
             <Pagination
                 activePage={activePage}
                 itemsCountPerPage={6}
