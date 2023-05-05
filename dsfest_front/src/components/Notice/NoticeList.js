@@ -133,15 +133,27 @@ function NoticeList() {
                     </>
                 )}
             </Container>
-            <Pagination
-                activePage={activePage}
-                itemsCountPerPage={6}
-                totalItemsCount={notice.length}
-                pageRangeDisplayed={5}
-                prevPageText={'‹'}
-                nextPageText={'›'}
-                onChange={handlePageChange}
-            />
+            {notice.length === 0 ? (
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={notice.length + 1}
+                    pageRangeDisplayed={5}
+                    prevPageText={'‹'}
+                    nextPageText={'›'}
+                    onChange={handlePageChange}
+                />
+            ) : (
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={6}
+                    totalItemsCount={notice.length}
+                    pageRangeDisplayed={5}
+                    prevPageText={'‹'}
+                    nextPageText={'›'}
+                    onChange={handlePageChange}
+                />
+            )}
         </div>
     );
 }
